@@ -1,0 +1,18 @@
+[Unit]
+Description=the Python parser of sds011 and bme680 sensors
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/path/to/py-influx-air
+EnvironmentFile=/path/to/py-influx-air/.env.installed
+ExecStart=/usr/bin/python3 -u -m air --port=${SDS011_SENSOR_PORT} --influx=${INFLUX_HOST} --database=${INFLUX_DB} --sds011_measurement=${INFLUX_SDS011_MEASUREMENT} --bme680_measurement=${INFLUX_BME680_MEASUREMENT} --location=${INFLUX_TAG_LOCATION} --geohash=${INFLUX_TAG_GEOHASH}
+StandardOutput=syslog
+StandardError=syslog
+RestartSec=5s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
