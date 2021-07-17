@@ -10,6 +10,12 @@ This project is forked from and inspired by:
 - [ikalchev/py-sds011](https://github.com/ikalchev/py-sds011)
 - [pimoroni/bme680-python](https://github.com/pimoroni/bme680-python)
 
+## Prerequisites
+
+- Python 3
+- InfluxDB instance with a database
+- Grafana (if you need data visualization)
+
 ## Install
 
 Step 1, create an environment file `.env.installed` from [`.env.example`](./.env.example).
